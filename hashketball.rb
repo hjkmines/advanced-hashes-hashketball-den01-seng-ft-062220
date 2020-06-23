@@ -68,77 +68,73 @@ end
 
 def num_points_scored(player)
 
-game_hash.each do |k, v|
-  v[:players].each do |x|
-    if x[:player_name] == player
+game_hash.each do |key, value|
+  value[:players].each do |x|
+    if x[:player_name] == player 
       return x[:points]
-    end
-  end
-end
-end
+    end 
+  end 
+end 
+
+end 
 
 def shoe_size(player)
-
-  game_hash.each do |k, v|
-    v[:players].each do |x|
-      if x[:player_name] == player
+  
+  game_hash.each do |key, value|
+    value[:players].each do |x|
+      if x[:player_name] == player 
         return x[:shoe]
-      end
-    end
-  end
-end
+      end 
+    end 
+  end 
+end 
 
 def team_colors(team)
+  
+  game_hash.each do |key, value|
+    if value[:team_name] == team 
+      return value[:colors]
+    end 
+  end 
+  
+end 
 
-  game_hash.each do |k, v|
-    if v[:team_name] == team
-      return v[:colors]
-    end
-  end
-end
 
-def team_names
-teams = Array.new
-
-game_hash.each do |k, v|
-  teams.push(v[:team_name])
-end
-teams
+def team_names 
+  
+ team_array = []
+ 
+ game_hash.each do |key, value|
+   team_array.push(value[:team_name])
+ end 
+  team_array
 end
 
 def player_numbers(team)
-
-players_num = Array.new
-
-game_hash.each do |k, v|
-  v[:players].each do |x|
-    if v[:team_name] ==  team
-      players_num.push(x[:number])
-    end
-  end
-end
-players_num
-end
+  
+  players_numberz = []
+  
+  game_hash.each do |key, value|
+    value[:players].each do |x|
+      if value[:team_name] == team 
+        players_numberz.push(x[:number])
+      end 
+    end 
+  end 
+  
+  players_numberz 
+end 
 
 def player_stats(player)
-
-game_hash.each do |k, v|
-  v[:players].each do |x|
-    if x[:player_name] == player
-      return x
-    end
-  end
-end
-
-end
-
-def big_shoe_rebounds
-
-game_hash.each do |k, v|
-  v[:players].each do |x|
-    if x[:shoe] == 19
-      return x[:rebounds]
+  
+  game_hash.each do |key, value|
+    value[:players].each do |x|
+      if x[:player_name] == player 
+        return x
+      end 
     end 
   end
-end
-end
+  
+end   
+
+
